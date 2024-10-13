@@ -21,21 +21,9 @@ public class SpawnLocation : MonoBehaviour
      void  AddSpawnLocation()
     {
         // Create a new array that is one element larger than the current spawn locations
-        Vector3[] newLocations = new Vector3[spawner.spawnLocations.Length + 1];
-
-        // Copy existing locations to the new array
-        for (int i = 0; i < spawner.spawnLocations.Length; i++)
-        {
-            newLocations[i] = spawner.spawnLocations[i];
-        }
-
-        // Add this location's position to the end of the new array
         
-        newLocations[newLocations.Length - 1] = transform.position;
-        
-
         // Replace the old array with the new one
-        spawner.spawnLocations = newLocations;
+        spawner.spawnLocations.Add(transform.position);
 
         Debug.Log("Spawn location added: " + transform.position);
     }
